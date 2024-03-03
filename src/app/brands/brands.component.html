@@ -1,0 +1,21 @@
+<section class="container mt p-3">
+  <h1 class="text-center text-main">All Brands</h1>
+    <div class="row g-4">
+      <div
+        class="col-md-3"
+        *ngFor="let item of brands"
+      >
+        <div class="product text-center ">
+          <div class="cursor-pointer">
+            <div>
+                <img [src]="item.image" class="w-100" />
+            </div>
+            <h2 class="text-main">{{ item.name }}</h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+  </section>
+  

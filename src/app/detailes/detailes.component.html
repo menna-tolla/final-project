@@ -1,0 +1,41 @@
+<section class="">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <div class="container my-md-5 p-3">
+                <owl-carousel-o [options]="customOptions">
+                        <ng-container *ngFor="let pathImg of imgsProducts">
+                        <ng-template carouselSlide >
+                          <!-- <img [src]="imgProduct.image" [alt]="imgProduct.name" [title]="imgProduct.name" class="w-100 mb-3" height="200" > -->
+                          <img [src]="pathImg" alt="">
+                          <!-- <h6>{{slide.name}}</h6> -->
+                        </ng-template>
+                    </ng-container>  
+                 </owl-carousel-o>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+         <div>
+            <h3 class="">{{productDetails.title}}</h3>
+            <p class="h6 text-muted h5">{{productDetails.description}}</p>
+
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                   <span>{{productDetails.price}}  EGP</span>
+                </div>
+               <div>
+                <i class="fas fa-star rating-color"></i>
+                <span>{{productDetails.ratingsAverage}}</span>
+               </div>
+             </div>
+
+             <div class="d-flex align-items-center justify-content-center">
+                <button (click)="addCart(productDetails.id)" class="btn-main mx-auto d-block w-75 my-3"> + Add</button>
+                <i *ngIf="!wishListData.includes(productDetails.id)" (click)="addToWishListBtn(productDetails.id)" class="fa-solid fa-heart h3 cursor-pointer "></i>
+                <i *ngIf="wishListData.includes(productDetails.id)" (click)="removeWishListBtn(productDetails.id)" class="fa-solid fa-heart h3 cursor-pointer text-danger"></i>  
+             </div>
+
+         </div>
+        </div>
+    </div>   
+</section>

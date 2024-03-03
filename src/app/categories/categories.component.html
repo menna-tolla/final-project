@@ -1,0 +1,17 @@
+
+<section class="container my-5 p-3">  
+ <div class="row g-4">
+  <div class="col-md-4" *ngFor="let item of categories">
+    <div class="product text-center ">
+      <div class="cursor-pointer" [routerLink]="['/detailes', item._id]">
+        <div>
+            <img [src]="item.image" class="w-100" />
+        </div>
+        <h2 class="text-main p-3">{{ item.name }}</h2>
+      </div>
+    </div>
+
+  </div>
+    </div>
+  </section>
+  

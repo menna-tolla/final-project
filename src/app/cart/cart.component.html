@@ -1,0 +1,60 @@
+<section class="w-100 mx-auto p-3 rounded-3 my-5 bg-main-light ">
+
+  <div class="d-flex justify-content-between p-3">
+    <div>
+        <h1>Cart Shop</h1>
+        <h6>
+          total price: <span class="text-main">{{cartDetails.totalCartPrice | currency : " EGP " }}</span>
+      </h6>
+    </div>
+  
+    <div>
+      <button [routerLink]="['/payment' , cartId]" class="btn btn-primary p-2 my-3">check out</button>
+      <h5>total number of items: <span class="text-main">{{cartItemNumberCart }}</span></h5>
+    </div>
+
+  </div>
+
+    <div *ngFor="let item of cartDetails.products" class="row border-bottom pb-2">
+
+      <div class="d-flex justify-content-between align-content-center container">
+
+        <div class="col-md-3">
+          <div class="m-4">
+            <!-- <img class="w-100" [src]="cartDetails.products[0].product.imageCover"> -->
+            <img class="w-100" [src]="item.product.imageCover">
+
+          </div>
+        </div>
+
+        <div class="col-md-9 d-flex align-items-center justify-content-center">
+          <div class="row  d-flex justify-content-between container">
+
+            <div class="col-md-6 ">
+               <div class=" ">
+                <h3 class="h5">{{item.product.title}}</h3>
+               <p class="text-main">{{ item.price | currency : " EGP " }}</p>              
+               <button (click)="removeItemBtn(item.product._id)" class="text-danger btn p-0 m-0"><i class="fa-solid fa-trash-can"></i> remove</button>
+               </div>
+            </div>
+
+            <div class="col-md-6 text-end">
+             <div>
+             <button (click)="updateBtn('increase' , item.count , item.product._id)" class="btn border border-success">+</button>
+             <span class="m-2">{{item.count}}</span>
+             <button (click)="updateBtn('decrees' , item.count , item.product._id)" class="btn border border-success">-</button>
+             </div>
+            </div>
+
+          </div>
+        </div>
+    
+      </div> 
+
+    </div>
+
+    <div class="text-center mt-3">
+      <button (click)="clearBtn()" routerLink="/home" class="btn border border-success">Clear your Cart</button>
+    </div>
+
+</section>

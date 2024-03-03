@@ -1,0 +1,43 @@
+<section class="w-100 mx-auto p-3 rounded-3 my-5 bg-main-light ">
+
+    <h3>My wish List</h3>
+
+      <div *ngFor="let item of products"  class="row borhder-bottom pb-2">
+  
+        <div class="d-flex justify-content-between align-content-center container">
+  
+          <div class="col-md-3">
+            <div class="m-4">
+              <img [src]="item.imageCover"  class="img-fluid">
+            </div>
+          </div>
+  
+          <div class="col-md-9 d-flex align-items-center justify-content-center">
+            <div class="row  d-flex justify-content-between container">
+  
+              <div class="col-md-6 ">
+                 <div>
+                  <h4>{{item.title}}</h4>
+                  <h5>
+                   <span class="text-main">{{item.price}}</span>
+                 </h5>                
+                 <span (click)="removeItemBtn(item._id)" class="text-danger cursor-pointer"><i class="fa-solid fa-trash-can"></i> remove</span>
+                 </div>
+              </div>
+  
+              <div class="col-md-6 text-end">
+                <div class="text-center">
+                    <button (click)="addCart(item._id)" class="btn border border-success">add  to cart</button>
+                  </div>
+              </div>
+  
+            </div>
+          </div>
+      
+        </div>  
+      </div>
+  
+      
+  
+  </section>
+  
